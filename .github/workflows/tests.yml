@@ -5,7 +5,7 @@ on:
     branches: [ develop, main, master ]
 jobs:
   jest:
-    name: Jest with Codecov
+    name: Jest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
