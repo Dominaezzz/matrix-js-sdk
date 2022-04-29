@@ -36,3 +36,10 @@ jobs:
           name: coverage
           path: |
             test-report.xml
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: false
+          verbose: true
+          override_commit: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
