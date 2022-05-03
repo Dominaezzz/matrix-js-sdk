@@ -16,7 +16,8 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
-        branch: actions/upgrade-deps
-        delete-branch: true
-        title: Upgrade dependencies
-        labels: T-Task
+        with:
+          branch: actions/upgrade-deps
+          delete-branch: true
+          title: Upgrade dependencies
+          labels: T-Task
