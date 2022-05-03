@@ -1,6 +1,7 @@
 name: Upgrade Dependencies
 on:
   workflow_dispatch: { }
+  workflow_call: { }
 jobs:
   action:
     runs-on: ubuntu-latest
