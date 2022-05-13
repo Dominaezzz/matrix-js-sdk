@@ -5,6 +5,12 @@ on:
     types:
       - completed
 jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump context
+        uses: crazy-max/ghaction-dump-context@v1
+
   prdetails:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
     uses: t3chguy/matrix-js-sdk/.github/workflows/pr_details.yml@develop
@@ -14,7 +20,10 @@ jobs:
 
   sonarqube:
     needs: prdetails
-    if: github.event.workflow_run.conclusion == 'success'
+    if: |
+      always() &&
+      (needs.prdetails.result == 'success' || needs.prdetails.result == 'skipped') &&
+      github.event.workflow_run.conclusion == 'success'
     uses: t3chguy/matrix-js-sdk/.github/workflows/sonarcloud.yml@develop
     with:
       repo: ${{ github.event.workflow_run.head_repository.full_name }}
