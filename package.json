@@ -1,7 +1,7 @@
 {
   "name": "matrix-js-sdk",
   "version": "17.2.0",
-  "description": "Matrix Client-Server SDK for Javascript",
+  "description": "Matrix Client-Server SDK for Javascript test",
   "engines": {
     "node": ">=12.9.0"
   },
