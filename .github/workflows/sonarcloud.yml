@@ -69,6 +69,7 @@ jobs:
           workflow: ${{ inputs.coverage_workflow_name }}
           run_id: ${{ inputs.coverage_run_id }}
           name: coverage
+          path: coverage
 
       - name: "🔍 Read package.json version"
         id: version
