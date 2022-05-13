@@ -44,6 +44,12 @@ on:
       SONAR_TOKEN:
         required: true
 jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump context
+        uses: crazy-max/ghaction-dump-context@v1
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
