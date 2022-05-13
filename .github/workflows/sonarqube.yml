@@ -21,11 +21,11 @@ jobs:
     uses: t3chguy/matrix-js-sdk/.github/workflows/sonarcloud.yml@develop
     with:
       repo: ${{ github.event.workflow_run.head_repository.full_name }}
-      pr_id: ${{ needs.prdetails.output.prnumber +0 }}
+      pr_id: ${{ needs.prdetails.output.prnumber || 0 }}
       head_branch: ${{ needs.prdetails.outputs.headref || github.event.workflow_run.head_branch }}
       base_branch: ${{ needs.prdetails.outputs.baseref }}
       revision: ${{ github.event.workflow_run.head_sha }}
       coverage_workflow_name: tests.yml
-      coverage_run_id: ${{ github.event.workflow_run.id +0 }}
+      coverage_run_id: ${{ github.event.workflow_run.id }}
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
