@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: details
-        uses: matrix-org/pr-details-action@v0.0.1
+        uses: matrix-org/pr-details-action@0.0.1
         with:
           owner: ${{ github.event.workflow_run.head_repository.owner.login }}
           branch: ${{ github.event.workflow_run.head_branch }}
