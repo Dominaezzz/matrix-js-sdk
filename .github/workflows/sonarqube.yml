@@ -19,9 +19,9 @@ jobs:
           owner: ${{ github.event.workflow_run.head_repository.owner.login }}
           branch: ${{ github.event.workflow_run.head_branch }}
     outputs:
-      pr_id: ${{ steps.details.pr_id }}
-      head_branch: ${{ steps.details.head_branch }}
-      base_branch: ${{ steps.details.base_branch }}
+      pr_id: ${{ steps.details.outputs.pr_id }}
+      head_branch: ${{ steps.details.outputs.head_branch }}
+      base_branch: ${{ steps.details.outputs.base_branch }}
 
   sonarqube:
     name: 🩻 SonarQube
