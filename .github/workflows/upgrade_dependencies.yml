@@ -22,17 +22,10 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: actions/upgrade-deps
           delete-branch: true
           title: Upgrade dependencies
           labels: |
             Dependencies
             T-Task
-          
-      - name: Enable automerge
-        uses: peter-evans/enable-pull-request-automerge@v2
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        with:
-          token: ${{ secrets.ELEMENT_BOT_TOKEN }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
